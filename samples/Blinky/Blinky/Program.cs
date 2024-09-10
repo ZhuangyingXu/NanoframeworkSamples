@@ -1,4 +1,4 @@
-//
+﻿//
 // Copyright (c) .NET Foundation and Contributors
 // See LICENSE file in the project root for full license information.
 //
@@ -22,7 +22,9 @@ namespace Blinky
             //GpioPin led = s_GpioController.OpenPin(PinNumber('D', 15), PinMode.Output);
 
             // ESP32 DevKit: 4 is a valid GPIO pin in, some boards like Xiuxin ESP32 may require GPIO Pin 2 instead.
-            //GpioPin led = s_GpioController.OpenPin(4, PinMode.Output);
+            // GpioPin led = s_GpioController.OpenPin(4, PinMode.Output);
+            // Learning from the PlatformIO experience, use pin 2 instead
+            GpioPin led = s_GpioController.OpenPin(2, PinMode.Output);
 
             // FEATHER S2: 
             //GpioPin led = s_GpioController.OpenPin(13, PinMode.Output);
@@ -43,7 +45,7 @@ namespace Blinky
             //GpioPin led = s_GpioController.OpenPin(PinNumber('B', 7), PinMode.Output);
 
             //STM32F769I_DISCO: PJ5 is LD2
-            GpioPin led = s_GpioController.OpenPin(PinNumber('J', 5), PinMode.Output);
+            //GpioPin led = s_GpioController.OpenPin(PinNumber('J', 5), PinMode.Output);
 
             // ST_B_L475E_IOT01A: PB14 is LD2
             //GpioPin led = s_GpioController.OpenPin(PinNumber('B', 14), PinMode.Output);
@@ -74,8 +76,8 @@ namespace Blinky
             //GpioPin led = s_GpioController.OpenPin(Gpio.IO18, PinMode.Output); // LED Green (Test LED) on device
 
             // Aliexpress ESP32-WROOM32, GPIO2 - onboard not-power LED
-            // GpioPin led = s_GpioController.OpenPin(2, PinMode.Output);
-            
+            //GpioPin led = s_GpioController.OpenPin(2, PinMode.Output);
+
             led.Write(PinValue.Low);
 
             while (true)
